@@ -34,11 +34,11 @@ model.eval()
 test_dir = "./test-formatted"
 files = sorted([f for f in os.listdir(test_dir) if f.endswith(".jpg")])
 
-sim_steps = 150  # Număr de pași pentru coerență cu modelul antrenat
+sim_steps = 150
 
 for file in files:
     image_path = os.path.join(test_dir, file)
-    image = Image.open(image_path).convert("L")  # Asigură-te că imaginea este monocromatică (L)
+    image = Image.open(image_path).convert("L")
 
     # Transformă imaginea într-un array și apoi într-un tensor
     image = torch.tensor(array(image), dtype=torch.float32, device=device).view(1, -1) / 255.0
